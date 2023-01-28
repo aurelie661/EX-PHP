@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Formulaire</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width"/>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+		<link rel="stylesheet"  href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+		
+	</head> 
+    <body>
+        <form class="formulaire" action="traitement.php" method="POST">
+            <fieldset>
+                <legend>Remplissez ce formulaire</legend>
+                <div class="form-group">
+                    <label for="nom" class="form-label">Nom</label> :
+                    <input type="text" class="form-control" name="nom" required autofocus placeholder="ex: Dupuis">
+                </div>
+                <div class="form-group">
+                    <label for="prenom" class="form-label">Prénom</label> :
+                    <input type="text" class="form-control" name="prenom" required autofocus placeholder="ex: Liyah">
+                </div>
+                <div class="form-group">
+                    <label for="mail" class="form-label">E-mail</label> :
+                    <input type="email" class="form-control" name="mail" required autofocus placeholder="ex: Liyah@live.fr">
+                </div>
+                <div class="form-group">
+                    <label for="telephone" class="form-label">N° Téléphone</label> :
+                    <input type="tel" class="form-control" name="telephone" required autofocus placeholder="ex: 0654879632">
+                </div>
+                <div>
+                    <button type="submit" name="formconnexion" class="btn btn-success btn-block">Valider</button>
+                </div>
+                <div style="margin-top: 5px;">
+                    <button type="reset" class="btn btn-link btn-block">Réinitialiser</button>
+                </div>
+            </fieldset>
+        </form>
+    </body>
+</html>	

@@ -1,0 +1,26 @@
+h1{
+    text-align: center;
+}
+.table,th,td{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #000000;
+    text-align: left;
+  
+}
+.mb-3{
+    margin-bottom: 15px;
+}
+legend{
+    text-align: center;
+}
+.col-auto{
+    margin-top: 5px;
+}
+.formulaire{
+    margin: auto;
+    margin-top: 100px;
+    width: 350px;
+    
+}
+
