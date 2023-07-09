@@ -1,6 +1,6 @@
-CREATE DATABASE gestion_employe IF NOT EXIST;
+CREATE DATABASE gestion_employe;
 
-create table EMP(
+create table gestion_employe.EMP(
 	noemp int(4) primary key not null,
 	nom varchar(20),
 	prenom varchar(20),
@@ -12,17 +12,27 @@ create table EMP(
 	noserv int(2) not null
 );
 
-create table SERV(
+create table gestion_employe.SERV(
 	noserv int(2) primary key not null,
 	service varchar(20),
 	ville varchar(20)
 );
 
-alter table employes
-	add constraint foreign key (noserv) references services(noserv);
+alter table EMP
+	add constraint foreign key (noserv) references SERV (noserv);
 
-alter table employes
-	add constraint foreign key (sup) references employes(noemp);
+alter table EMP
+	add constraint foreign 'fk_key' key (sup) references EMP (noemp);
+
+
+insert into SERV values (1,'DIRECTION','PARIS');
+insert into SERV values (2,'LOGISTIQUE','SECLIN');
+insert into SERV values (3,'VENTES','ROUBAIX');
+insert into SERV values (4,'FORMATION','VILLENEUVE D''ASCQ');
+insert into SERV values (5,'INFORMATIQUE','LILLE');
+insert into SERV values (6,'COMPTABILITE','LILLE');
+insert into SERV values (7,'TECHNIQUE','ROUBAIX');
+ 
 
 insert into EMP values (1000,'LEROY','PAUL','PRESIDENT',null,str_to_date('25/10/87','%d/%m/%y'),55005.5,null,1);
 insert into EMP values (1100,'DELPIERRE','DOROTHEE','SECRETAIRE',1000,str_to_date('25/10/87','%d/%m/%y'),12351.24,null,1);
@@ -40,7 +50,7 @@ insert into EMP values (1500,'DUPONT','JEAN','DIRECTEUR',1000,str_to_date('23/10
 insert into EMP values (1501,'DUPIRE','PIERRE','ANALYSTE',1500,str_to_date('24/10/84','%d/%m/%y'),23102.31,null,5);
 insert into EMP values (1502,'DURAND','BERNARD','PROGRAMMEUR',1500,str_to_date('30/07/87','%d/%m/%y'),13201.32,null,5);
 insert into EMP values (1503,'DELNATTE','LUC','PUPITREUR',1500,str_to_date('15/01/99','%d/%m/%y'),8801.01,null,5);
-insert into employes values (1600,'LAVARE','PAUL','DIRECTEUR',1000,str_to_date('13/12/91','%d/%m/%y'),31238.12,null,6);
+insert into EMP values (1600,'LAVARE','PAUL','DIRECTEUR',1000,str_to_date('13/12/91','%d/%m/%y'),31238.12,null,6);
 insert into EMP values (1601,'CARON','ALAIN','COMPTABLE',1600,str_to_date('16/09/85','%d/%m/%y'),33003.3,null,6);
 insert into EMP values (1602,'DUBOIS','JULES','VENDEUR',1300,str_to_date('20/12/90','%d/%m/%y'),9520.95,35535,6);
 insert into EMP values (1603,'MOREL','ROBERT','COMPTABLE',1600,str_to_date('18/07/85','%d/%m/%y'),33003.3,null,6);
@@ -49,11 +59,4 @@ insert into EMP values (1605,'RICHARD','JULES','COMPTABLE',1600,str_to_date('22/
 insert into EMP values (1615,'DUPREZ','JEAN','BALAYEUR',1000,str_to_date('22/10/98','%d/%m/%y'),6000.6,null,5);
 
 
-insert into SERV values (1,'DIRECTION','PARIS');
-insert into SERV values (2,'LOGISTIQUE','SECLIN');
-insert into SERV values (3,'VENTES','ROUBAIX');
-insert into SERV values (4,'FORMATION','VILLENEUVE D''ASCQ');
-insert into SERV values (5,'INFORMATIQUE','LILLE');
-insert into SERV values (6,'COMPTABILITE','LILLE');
-insert into SERV values (7,'TECHNIQUE','ROUBAIX');
 
